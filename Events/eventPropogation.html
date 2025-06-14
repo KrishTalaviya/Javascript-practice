@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Event Propagation Demo</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    .box {
+      padding: 30px;
+      margin: 10px;
+      border: 2px solid black;
+      text-align: center;
+      cursor: pointer;
+    }
+    #outer {
+      background-color: lightblue;
+    }
+    #middle {
+      background-color: lightgreen;
+    }
+    #inner {
+      background-color: lightcoral;
+    }
+  </style>
+</head>
+<body>
+
+<div id="outer" class="box">
+  Outer
+  <div id="middle" class="box">
+    Middle
+    <div id="inner" class="box">
+      Inner
+    </div>
+  </div>
+</div>
+
+<script>
+  const outer = document.getElementById('outer');
+  const middle = document.getElementById('middle');
+  const inner = document.getElementById('inner');
+
+  function logEvent(phase, element) {
+    console.log(`${phase}: ${element}`);
+  }
+
+  // Capturing phase listeners
+  outer.addEventListener('click', () => logEvent('Capturing', 'Outer'), { capture: true });
+  middle.addEventListener('click', () => logEvent('Capturing', 'Middle'), { capture: true });
+  inner.addEventListener('click', () => logEvent('Capturing', 'Inner'), { capture: true });
+
+  // Bubbling phase listeners
+  outer.addEventListener('click', () => logEvent('Bubbling', 'Outer'));
+  middle.addEventListener('click', () => logEvent('Bubbling', 'Middle'));
+  inner.addEventListener('click', () => logEvent('Bubbling', 'Inner'));
+</script>
+
+</body>
+</html>

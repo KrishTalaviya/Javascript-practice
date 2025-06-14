@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="example">Hello <b>World</b>!</div>
+    <div id="demo">
+  Hello <span style="display:none">invisible</span> World!
+</div>
+<input type="text" id="nameInput" value="John">
+<button onclick="showValue()">Show Value</button>
+<div id="parent">
+  <p id="child">I'm a child!</p>
+</div>
+<div id="box">Hello World</div>
+</body>
+<script>
+  const div = document.getElementById("example");
+  console.log(div.innerText); // Output: Hello World!
+  const demo = document.getElementById("demo");
+
+  console.log("innerText:", demo.innerText);     // Hello  World!
+  console.log("textContent:", demo.textContent);
+  console.log("innerHtml:", demo.innerHTML);
+   function showValue() {
+    const input = document.getElementById("nameInput").value;
+    console.log(input); // Outputs: John (or whatever the user typed)
+  }
+  const child = document.getElementById("child");
+  const parent = child.parentElement;
+  
+  console.log(parent.id);
+  const textNode = document.createTextNode("This is a text node. ");
+const newPara2 = document.createElement("p");
+newPara2.textContent = "This is another paragraph.";
+
+document.getElementById('box').append(textNode, newPara2);
+const newPara = document.createElement("p");
+  newPara.textContent = "This paragraph is prepended using prepend()!";
+  div.prepend(newPara)
+  div.append(textNode)
+
+  
+  
+</script>
+</html>

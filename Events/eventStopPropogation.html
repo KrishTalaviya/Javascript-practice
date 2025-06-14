@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="modal">
+  <div id="modalContent">Modal Content</div>
+</div>
+</body>
+</html>
+
+<script>
+  const modal = document.getElementById('modal');
+  const content = document.getElementById('modalContent');
+
+  modal.addEventListener('click', () => {
+    console.log('Modal closed');
+    modal.style.display = 'none';
+  });
+
+  content.addEventListener('click', (event) => {
+    event.stopPropagation(); // Prevent click from reaching modal
+  });
+</script>

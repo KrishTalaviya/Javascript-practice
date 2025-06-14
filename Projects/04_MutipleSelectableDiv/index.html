@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .selectable {
+        border: 2px solid #ccc;
+        padding: 1rem;
+        border-radius: 8px;
+        cursor: pointer;
+      }
+      .selectable.checked {
+        border-color: #007bff;
+        background-color: #e6f0ff;
+      }
+      .selectable input[type="checkbox"] {
+        display: none;
+      }
+      .submit-btn {
+        display: none; /* hidden by default */
+      }
+      .submit-btn.show {
+        display: inline-block; /* shown only when at least one div is selected */
+      }
+      
+      
+</style>
+<body>
+    <form>
+        <div class="selectable" onclick="toggleSelection(this)">
+            <input type="checkbox" />
+            Option 1
+        </div>
+        <div class="selectable" onclick="toggleSelection(this)">
+            <input type="checkbox" />
+            Option 2
+        </div>
+        <div class="selectable" onclick="toggleSelection(this)">
+            <input type="checkbox" />
+            Option 3
+        </div>
+        <button id="submitBtn" class="submit-btn">Submit</button>
+    </form>
+    <script >
+        function toggleSelection(div){
+            const checkbox=div.querySelector('input[type="checkbox"]');
+            checkbox.checked=!checkbox.checked;
+            div.classList.toggle('checked', checkbox.checked);
+            updateSubmitVisibility();
+        }
+        function updateSubmitVisibility() {
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            const submitBtn = document.getElementById('submitBtn');
+            const anyChecked = Array.from(checkboxes).some(cb => cb.checked);
+            submitBtn.classList.toggle('show', anyChecked);
+          }
+          
+    </script>
+</body>
+</html>

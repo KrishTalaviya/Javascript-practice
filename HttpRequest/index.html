@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Star Wars Planets</title>
+  <style>
+    body {
+      background-color: #121212;
+      color: #f1f1f1;
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+
+    #planet-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background-color: #1e1e2f;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    }
+
+    .card h2 {
+      color: #ffc107;
+    }
+
+    .card ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .card li {
+      margin-bottom: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Star Wars Planets</h1>
+  <div id="planet-container"></div>
+
+  <script src="XmlHttpRequets.js"></script>
+</body>
+</html>

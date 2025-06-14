@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Currency Notes Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      padding: 2rem;
+    }
+
+    table {
+      width: 100%;
+      max-width: 800px;
+      margin: 0 auto;
+      border-collapse: collapse;
+    }
+
+    td, th {
+      padding: 1rem;
+      border: 1px solid #ddd;
+      text-align: center;
+    }
+
+    input[type="number"] {
+      width: 100%;
+      padding: 0.5rem;
+      font-size: 1rem;
+      box-sizing: border-box;
+    }
+
+    .result {
+      font-weight: bold;
+      color: #333;
+    }
+
+    .error {
+      color: red;
+    }
+
+    #grandTotal {
+      font-size: 1.2rem;
+      font-weight: bold;
+      padding-top: 1rem;
+      text-align: center;
+    }
+    .withdraw-wrapper {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 16px;
+      background-color: #f8f9fa;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      max-width: 400px;
+      margin: 20px auto;
+    }
+    
+    .withdraw {
+      flex: 1;
+      padding: 10px 12px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    
+    .withdraw:focus {
+      border-color: #007bff;
+    }
+    
+    .changeMoney {
+      padding: 10px 16px;
+      font-size: 16px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+    
+    .changeMoney:hover {
+      background-color: #0056b3;
+    }
+    
+  </style>
+</head>
+<body>
+  <h1 style="text-align: center;">Currency Calculator</h1>
+
+  
+  <table id="currencyTable">
+    <tbody>
+      <!-- <tr>
+        <td><input type="number" class="currency" placeholder="Currency Value" /></td>
+        <td><input type="number" class="notes" placeholder="Notes Count" /></td>
+        <td><div class="result">Result</div></td>
+        <td><button class="addInputs">add</button></td>
+        <td><button class="deleteInput">delete</button></td>
+      </tr> -->
+    </tbody>
+  </table>
+
+  <div id="grandTotal">Grand Total: 0</div>
+  <h1 style="text-align: center;">Give Change</h1>
+
+  <div class="withdraw-wrapper">
+    <input type="number" placeholder="Withdraw money" class="withdraw" />
+    <button class="changeMoney">Change</button>
+  </div>
+  
+  <div id="changedTable">
+    <table>
+    <thead>
+     
+      <td>Note Value</td>
+      <td>No of Notes</td>
+    </thead>
+    <tbody id="changedTableBody">
+
+    </tbody>
+  </table>
+  </div>
+
+  <script src="index.js"></script>
+</body>
+</html>
+
